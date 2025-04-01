@@ -1,0 +1,14 @@
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: anvar_bot
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+    volumes:
+      - ./data:/app/data  # Ma'lumotlarni saqlash uchun jild
+    restart: unless-stopped  # Konteyner o'chganda avto-qayta ishga tushadi
+
+volumes:
+  data:  # Ma'lumotlarni saqlash uchun nomlangan jild
